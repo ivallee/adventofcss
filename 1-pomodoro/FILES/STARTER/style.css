@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('./fonts/bebasneue-book-webfont.woff') format('woff');
+  src: url('./fonts/bebasneue-book-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+  src: url('./fonts/Montserrat-Regular.ttf') format('ttf');
+}
+
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --grey: #2B2A30;
+  --lightgrey: #585858;
+  --red: #9d0000;
+  --green: #00aa51;
+  --timer-box-shadow: 5px -16px 50px rgba(255, 255, 255, 15%), -5px 14px 44px var(--black) ;
+  --circle-circumference: 1551.946;
+}
+
+body {
+  background: var(--grey);
+}
+
+/* Button reset */
+button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  box-shadow: var(--timer-box-shadow);
+}
+
+.timer__ring {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  stroke-dasharray: var(--circle-circumference) var(--circle-circumference);
+  stroke-dashoffset: var(--circle-circumference);
+}
+
+.timer__ring-circle {
+  stroke: var(--red);
+  stroke-width: 6;
+  stroke-linecap: round;
+  fill: transparent;
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+
+}
+
+.timer__input {
+  width: 304px;
+  font-size: 196px;
+  font-family: 'Bebas Neue';
+  color: var(--white);
+  border-style: none;
+  background: none;
+}
+
+.timer__start {
+  font-size: 16px;
+  font-family: Montserrat;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: .6em;
+}
+
+.timer__settings {
+  color: var(--lightgrey);
+}
