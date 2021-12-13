@@ -1,4 +1,5 @@
-const timer = document.querySelector('.timer__input');
+const timerInput = document.querySelector('.timer__input');
+const startButton = document.querySelector('.timer__start');
 const circle = document.querySelector('.timer__ring-circle');
 const radius = circle.r.baseVal.value;
 const circumference = radius * 2 * Math.PI;
@@ -11,13 +12,18 @@ function setProgress(percent) {
   return offset;
 }
 
+function leadingZeroes(number) {
+  return number < 10 ? `0${number}` : number;
+}
+
 function updateCountdown(endDate, range) {
   const diff = Math.max(0, endDate - new Date());
+  const minutesRemain = Math.floor((diff / 1000 / 60) % 60);
+  const secondsRemain = Math.floor((diff / 1000) % 60);
 
-  const percentComplete = Math.floor(100 - 100 * diff / range);
-  console.log(percentComplete)
+  const percentComplete = Math.ceil(100 - 100 * diff / range);
   circle.style.strokeDashoffset = setProgress(percentComplete);
-  // TODO: Update timer input
+  timerInput.value = `${leadingZeroes(minutes)}:${leadingZeroes(seconds)}`;
   
   if (diff >= 0) {
     requestAnimationFrame(() => updateCountdown(endDate, range));
