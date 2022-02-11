@@ -23,19 +23,40 @@ function updateCountdown(endDate, range) {
 
   const percentComplete = Math.ceil(100 - 100 * diff / range);
   circle.style.strokeDashoffset = setProgress(percentComplete);
-  timerInput.value = `${leadingZeroes(minutes)}:${leadingZeroes(seconds)}`;
-  
-  if (diff >= 0) {
-    requestAnimationFrame(() => updateCountdown(endDate, range));
-  }  
+  timerInput.value = `${leadingZeroes(minutesRemain)}:${leadingZeroes(secondsRemain)}`;
+  if (diff > 0) {
+    requestAnimationFrame(() => {
+      updateCountdown(endDate, range);
+    });
+  } else {
+    circle.classList.add('timer__ring-circle--complete');
+    console.log('Timer up!');
+  }
+}
+
+function convertToMs(time) {
+  const [minutes, seconds] = time.split(':').map(parseFloat);
+  return (minutes * 60000) + (seconds * 1000);
 }
 
 function startTimer(input) {
   const startDate = new Date();
-  // TODO: make endDate dynamic based on timer input
-  const endDate = new Date(startDate.getTime() + 10000); // + 10 seconds
+  const ms = convertToMs(input.value);
+  const endDate = new Date(startDate.getTime() + ms);
   const range = endDate - startDate;
   updateCountdown(endDate, range);
 }
 
-startTimer();
+startButton.addEventListener('click', ({ target }) => {
+  // TODO: convert to toggle off / on
+  target.innerHTML = 'Stop';
+  startTimer(timerInput);
+});
+
+/**
+ * TODOS:
+ * - Pause / stop timer
+ * - Reset timer and ring class
+ * - Validation for input to protect against missing : character
+ * - Settings button to disable/enable input
+ */

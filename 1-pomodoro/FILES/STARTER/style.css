@@ -44,10 +44,9 @@ button {
 
 .timer {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-rows: 6fr 50px 50px 1fr;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
   height: 500px;
   width: 500px;
   border-radius: 50%;
@@ -65,7 +64,7 @@ button {
 .timer__ring-circle {
   stroke: var(--red);
   stroke-width: 6;
-  /* stroke-linecap: round; */
+  stroke-linecap: round;
   fill: transparent;
   transition: stroke-dashoffset 0.35s;
   transform: rotate(-90deg);
@@ -73,13 +72,19 @@ button {
 
 }
 
+.timer__ring-circle--complete {
+  stroke: var(--green);
+}
+
 .timer__input {
-  width: 304px;
+  width: 100%;
+  align-self: end;
   font-size: 196px;
   font-family: 'Bebas Neue';
   color: var(--white);
   border-style: none;
   background: none;
+  text-align: center;
 }
 
 .timer__start {
