@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --bg: #EFF0F6;
+}
+
+body {
+  background: var(--bg);
+  margin: 100px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(375px, 375px));
+  grid-gap: 50px;
+  justify-content: center;
+}
+
+.window {
+  background: #FFF;
+  height: 812px;
+  border-radius: 25px;
+  box-shadow: 0 0 70px #C7CBE3;
+}
+
+.window__title {
+  margin: 50px 40px;
+}
+
+.cart__message--empty {
+  margin-left: 40px;
+}
+
+.menu-item {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: repeat(3, 1fr);
+
+  /* grid-template-areas: 
+    "image title title"
+    "image price price"
+    "image button button" */
+}
+
+.menu-item__image {
+  width: 100%;
+  /* grid-area: image; */
+  grid-row: 1 / -1;
+}
+
+/* .menu-item__title {
+  grid-area: title;
+}
+.menu-item__price {
+  grid-area: price;
+}
+.menu-item__button {
+  grid-area: button;
+} */
