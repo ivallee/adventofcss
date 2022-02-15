@@ -26,9 +26,15 @@ body {
 
 .window {
   background: #FFF;
-  height: 812px;
+  max-height: 812px;
+  min-height: 500px;
   border-radius: 25px;
   box-shadow: 0 0 70px #C7CBE3;
+}
+
+.window ul {
+  margin: 0 auto;
+  padding: 0;
 }
 
 .window__title {
@@ -40,29 +46,61 @@ body {
 }
 
 .menu-item {
+  position: relative;
   list-style: none;
+  z-index: 1;
+}
+
+.menu-item::before {
+  background: hsla(212, 83%, 72%, .2);
+  content: '';
+  position: absolute;
+  margin: 20px 0 10px 20px;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-radius: 25px 0 0 25px;
+  z-index: -1;
+}
+
+.menu-item:nth-child(2)::before {
+  background: hsla(329, 72%, 69%, .2);
+}
+
+.menu-item:nth-child(3)::before {
+  background: hsla(240, 74%, 91%, .2);
+}
+
+.menu-item:nth-child(4)::before {
+  background: hsla(152, 89%, 72%, .2);
+}
+
+.menu-item__container {
   display: grid;
   grid-template-columns: 150px 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 43px);
+}
 
-  /* grid-template-areas: 
-    "image title title"
-    "image price price"
-    "image button button" */
+
+.menu-item > * {
+  margin: 0;
 }
 
 .menu-item__image {
   width: 100%;
-  /* grid-area: image; */
   grid-row: 1 / -1;
 }
 
-/* .menu-item__title {
-  grid-area: title;
+.menu-item__title {
+  grid-row: 2 / 2;
 }
+
 .menu-item__price {
-  grid-area: price;
+  grid-row: 3 / 3;
 }
+
+
 .menu-item__button {
-  grid-area: button;
-} */
+  grid-row: span 1 / -1;
+}
