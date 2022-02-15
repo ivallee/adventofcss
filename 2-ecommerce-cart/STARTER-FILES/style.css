@@ -5,12 +5,19 @@
 }
 
 body {
+  height: 100vh;
   background: var(--bg);
-  margin: 100px 0;
   font-family: 'Poppins', sans-serif;
+  background-image: 
+    url(./images/bg__left.svg),
+    url(./images/bg__top-right.svg),
+    url(./images/bg__btm-right.svg);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: left, top right, bottom right;
 }
 
 .wrapper {
+  padding: 100px 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(375px, 375px));
   grid-gap: 50px;
