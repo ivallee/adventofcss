@@ -58,8 +58,46 @@
       <h2 class="window__title">Your Cart</h2>
       <!-- h2 title -->
       <!-- if empty -->
-      <p class="cart__message--empty">Your cart is empty.</p>
+        <!-- <p class="cart__message--empty">Your cart is empty.</p> -->
       <!-- else -->
+      <ul>
+        <li class="cart-item">
+          <div class="cart-item__image-container">
+            <img src="./images/plate__french-fries.png" alt="French Fries with Ketchup">
+            <span>2</span>
+          </div>
+          <h3 class="cart-item__title">
+            French Fries with Ketchup
+          </h3>
+          <p class="cart-item__price">$2.23</p>
+          <div class="menu-item__controls">
+            <button
+              class="cart-item__btn--dec"
+              aria-label="Decrease item quantity"
+              type="button">
+              <img src="./images/chevron.svg" alt="Left facing chevron symbol">
+            </button>
+            <span class="cart-item__qty">2</span>
+            <button
+              class="cart-item__btn--inc"
+              aria-label="Increase item quantity"
+              type="button">
+              <img src="./images/chevron.svg" alt="Right facing chevron symbol">
+            </button>
+          </div>
+          <p class="cart-item__total">$4.46</p>
+        </li>
+      </ul>
+
+      <p class="cart__subtotal">
+        Subtotal: <span class="cart__subtotal-price">$20.10</span>
+      </p>
+      <p class="cart__tax">
+        Tax: <span class="cart__tax-price">$1.96</span>
+      </p>
+      <p class="cart__total">
+        Total: <span class="cart__total-price">$30.12</span>
+      </p>
         <!-- ul -->
           <!-- li (PLI) -->
             <!-- div -->

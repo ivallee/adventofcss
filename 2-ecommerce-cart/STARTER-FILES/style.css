@@ -37,23 +37,24 @@ body {
 .window ul {
   margin: 0 auto;
   padding: 0;
+  list-style: none;
 }
 
 .window__title {
   margin: 50px 40px;
 }
 
+.cart__message--empty {
+  margin-left: 40px;
+}
+/* MENU */
+
 .menu {
   overflow-y: hidden;
 }
 
-.cart__message--empty {
-  margin-left: 40px;
-}
-
 .menu-item {
   position: relative;
-  list-style: none;
   z-index: 1;
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -128,3 +129,6 @@ body {
   background: var(--btn-primary--hover);
   transform: translateY(2px);
 }
+
+/* CART */
+
