@@ -2,6 +2,8 @@
 
 :root {
   --bg: #EFF0F6;
+  --btn-primary: hsl(266, 100%, 48%);
+  --btn-primary--hover: hsl(266, 100%, 30%);
 }
 
 body {
@@ -41,6 +43,10 @@ body {
   margin: 50px 40px;
 }
 
+.menu {
+  overflow-y: hidden;
+}
+
 .cart__message--empty {
   margin-left: 40px;
 }
@@ -49,6 +55,10 @@ body {
   position: relative;
   list-style: none;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: repeat(4, 43px);
+  column-gap: 20px;
 }
 
 .menu-item::before {
@@ -64,24 +74,17 @@ body {
   z-index: -1;
 }
 
-.menu-item:nth-child(2)::before {
+.menu-item:nth-child(2n)::before {
   background: hsla(329, 72%, 69%, .2);
 }
 
-.menu-item:nth-child(3)::before {
+.menu-item:nth-child(3n)::before {
   background: hsla(240, 74%, 91%, .2);
 }
 
-.menu-item:nth-child(4)::before {
+.menu-item:nth-child(4n)::before {
   background: hsla(152, 89%, 72%, .2);
 }
-
-.menu-item__container {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  grid-template-rows: repeat(4, 43px);
-}
-
 
 .menu-item > * {
   margin: 0;
@@ -94,13 +97,34 @@ body {
 
 .menu-item__title {
   grid-row: 2 / 2;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .menu-item__price {
   grid-row: 3 / 3;
+  align-self: center;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 
 .menu-item__button {
   grid-row: span 1 / -1;
+  background: var(--btn-primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  width: 130px;
+  height: 32px;
+  align-self: end;
+  transform: translateY(0);
+  transition: 0.1s;
+}
+
+.menu-item__button:hover,
+.menu-item__button:focus {
+  background: var(--btn-primary--hover);
+  transform: translateY(2px);
 }
