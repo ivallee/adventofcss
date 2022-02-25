@@ -3,7 +3,8 @@
 :root {
   --bg: #EFF0F6;
   --btn-primary: hsl(266, 100%, 48%);
-  --btn-primary--hover: hsl(266, 100%, 30%);
+  --btn-primary-hover: hsl(266, 100%, 30%);
+  --border: #D7D7F9;
 }
 
 body {
@@ -20,6 +21,18 @@ body {
 
 img {
   width: 100%;
+}
+
+.btn {
+  background: var(--btn-primary);
+  transform: translateY(0);
+  transition: 0.1s;
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--btn-primary-hover);
+  transform: translateY(1px);
 }
 
 .wrapper {
@@ -113,10 +126,8 @@ img {
   font-weight: 700;
 }
 
-
 .menu-item__button {
   grid-row: span 1 / -1;
-  background: var(--btn-primary);
   color: white;
   border: none;
   border-radius: 50px;
@@ -124,14 +135,6 @@ img {
   width: 130px;
   height: 32px;
   align-self: end;
-  transform: translateY(0);
-  transition: 0.1s;
-}
-
-.menu-item__button:hover,
-.menu-item__button:focus {
-  background: var(--btn-primary--hover);
-  transform: translateY(2px);
 }
 
 /* CART */
@@ -147,7 +150,16 @@ img {
 .cart-item {
   display: grid;
   grid-template-columns: 65px 1fr 1fr;
+  grid-template-rows: 65px;
   column-gap: 10px;
+  padding-bottom: 33px;
+  margin-bottom: 33px;
+  --border-width: 1px;
+  border-bottom: var(--border-width) solid var(--border);
+}
+
+.cart-item:last-of-type {
+  --border-width: 5px
 }
 
 .cart-item__image-container {
@@ -155,13 +167,20 @@ img {
 }
 
 .cart-item__image-container span {
-  text-align: center;
   position: absolute;
   top: 50%;
   left: 0;
   right: 0;
   margin: auto;
   transform: translateY(-50%);
+  background: black;
+  width: 32px;
+  height: 32px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-item__header {
@@ -172,7 +191,51 @@ img {
   margin: 0;
 }
 
+.cart-item__title {
+  font-size: 18px;
+}
+
+.cart-item__price {
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .cart-item__controls {
   grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+.cart-item__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--btn-primary);
+  height: 32px;
+  width: 32px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.cart-item__btn img {
+  height: 19px;
+  width: 13px;
+}
+
+.cart-item__btn--inc img {
+  transform: rotate(180deg);
+}
+
+.cart-item__qty {
+  font-weight: 700;
+}
+
+.cart-item__total {
+  font-size: 32px;
+  margin: 0;
+  font-weight: 700;
+  text-align: end;
 }
 
